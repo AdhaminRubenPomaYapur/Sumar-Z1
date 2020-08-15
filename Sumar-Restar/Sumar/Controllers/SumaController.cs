@@ -7,19 +7,32 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Sumar.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]")]// para controlar nuestro server
     [ApiController]
     public class SumaController : ControllerBase
     {
         [HttpGet]
+        [Route("Add")]
         public int Add(int a, int b) {
             return a + b;     
         }
 
         [HttpPost]
-        public int Add2([FromHeader]int a,[FromHeader]int b)
-        {
+        public int Add2([FromHeader]int a,[FromHeader]int b){
             return a + b;
+        }
+
+        [HttpGet]
+        [Route("Multiply")]
+        public int Mul(int a, int b){
+            return a * b;
+        }
+
+        [HttpPost]
+        [Route("Multiply")]
+        public int Mul2([FromHeader] int a, [FromHeader] int b)
+        {
+            return a * b;
         }
     }
 }
